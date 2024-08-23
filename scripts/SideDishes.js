@@ -1,18 +1,23 @@
+import { setSideChoice } from "./TransientState.js"
+
 export const Sides = async () => {
-    const response = await fetch("http://localhost:8088/sides");
-    const sides = await response.json();
+    const response = await fetch("http://localhost:8088/sides")
+    const sides = await response.json()
 
-    let html = "<ul>";
+    let optionsHTML = `<ul>`
 
-    const listItems = sides.map(side => {
-        return `
-            <li>
-                <input type="radio" name="sideDish" value="${side.id}" /> ${side.title} - $${side.price.toFixed(2)}
-            </li>`;
-    });
+    const optionElements = sides.map((side) => {
+        return `<li><input type="radio" name="sideDish" value="${side.id}" /> ${side.title} - $${side.price.toFixed(2)}</li>`
+    })
 
-    html += listItems.join("");
-    html += "</ul>";
+    optionsHTML += optionElements.join("");
+    optionsHTML += `</ul>`
 
-    return html;
-};
+    document.addEventListener("change", (event) => {
+        if (event.target.name === "sideDish") {
+            setSideChoice(parseInt(event.target.value))
+        }
+    })
+
+    return optionsHTML
+}

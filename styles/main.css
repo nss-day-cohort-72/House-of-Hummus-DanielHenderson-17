@@ -53,3 +53,8 @@ ul {
     border-color: rgb(92, 92, 255)!important;
     border-style: dashed !important;
 }
+
+button {
+    border-color: #6f4ee2!important;
+    background-color: #6f4ee2!important;
+}
