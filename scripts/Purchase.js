@@ -1,11 +1,16 @@
 import { Purchase } from "./TransientState.js";
 
+
+//when Purchase combo button is clicked...
 const handlePurchaseClick = (clickEvent) => {
+    //if that button that was clicked has an id of #purchaseCombo, it calls the Purchase() function that is imported from TransientState.js
     if (clickEvent.target.id === "purchaseCombo") {
         Purchase()
     }
 }
 
+
+//returns the HTML for the Purchase Combo button
 export const SavePurchase = () => {
     document.addEventListener("click", handlePurchaseClick)
 
