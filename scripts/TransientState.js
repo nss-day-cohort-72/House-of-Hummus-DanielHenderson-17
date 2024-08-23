@@ -11,7 +11,7 @@ export const setEntreeChoice = (chosenEntreeId) => {
     console.log(transientState)
 }
 
-//updates the veggisId in transientState with the ID of the veggie the user selects
+//updates the veggiesId in transientState with the ID of the veggie the user selects
 export const setVeggieChoice = (chosenVeggieId) => {
     transientState.veggiesId = chosenVeggieId
     console.log(transientState)
