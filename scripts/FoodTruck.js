@@ -1,4 +1,3 @@
-import { addPurchase } from "./database.js"
 import { Sales } from "./Sales.js"
 
 document.addEventListener("click", (event) => {

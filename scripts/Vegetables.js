@@ -1,24 +1,18 @@
-import { getVeggies, setVeggie } from "./database.js"
+export const Veggies = async () => {
+    const response = await fetch("http://localhost:8088/veggies");
+    const veggies = await response.json();
 
-const veggies = getVeggies()
+    let html = "<ul>";
 
-docment.addEventListener("change", (event) => {
-    if (event.target.name === "vegetable") {
-        setVeggie(event.target.value)
-    }
-})
+    const listItems = veggies.map(vegetable => {
+        return `
+            <li>
+                <input type="radio" name="vegetable" value="${vegetable.id}" /> ${vegetable.type} - $${vegetable.price.toFixed(2)}
+            </li>`;
+    });
 
-export const Veggies = () => {
+    html += listItems.join("");
+    html += "</ul>";
 
-    let html = `<ul>
-        ${
-            vegies.map(vegtable => {
-                return `<li>
-                            <input type="radio" name="vegetable" value="${vegetable.id}" /> ${vegetable.type}
-                        </li>`
-            }).join("")
-        }
-    </ul>`
-
-    return html
-}
+    return html;
+};

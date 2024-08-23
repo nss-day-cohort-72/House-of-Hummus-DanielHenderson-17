@@ -1,5 +1,3 @@
-import { getVeggies } from "./database.js"
-
 const buildOrderListItem = (order) => {
     const veggies = getVeggies()
 

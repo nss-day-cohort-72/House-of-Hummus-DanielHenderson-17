@@ -48,3 +48,8 @@ ul {
     text-align: center;
     margin: 1rem 0 3rem 2rem;
 }
+
+.card {
+    border-color: rgb(92, 92, 255)!important;
+    border-style: dashed !important;
+}

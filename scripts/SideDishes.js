@@ -1,26 +1,18 @@
-import { getSides, setSide } from "./database.js"
+export const Sides = async () => {
+    const response = await fetch("http://localhost:8088/sides");
+    const sides = await response.json();
 
-const sideDishes = getSides()
+    let html = "<ul>";
 
-document.addEventListener("change", (event) => {
-    if (event.target.name === "sideDish") {
-        setSide(parseInt(event.target.value))
-    }
-})
+    const listItems = sides.map(side => {
+        return `
+            <li>
+                <input type="radio" name="sideDish" value="${side.id}" /> ${side.title} - $${side.price.toFixed(2)}
+            </li>`;
+    });
 
-// Requirement: The radio input elements that this component funcion renders must all have a name of "sideDish"
-export const Sides = () => {
-    let html = "<ul>"
+    html += listItems.join("");
+    html += "</ul>";
 
-    const listItems = sideDishes.map(dish => {
-        return `<li>
-            <input type="radio" />
-        </li>`
-    })
-
-    html += listItems.join("")
-    html += "</ul>"
-
-    return html
-}
-
+    return html;
+};
