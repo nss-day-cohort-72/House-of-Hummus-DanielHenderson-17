@@ -148,6 +148,12 @@
       "veggiesId": 5,
       "sidesId": 4,
       "id": 3
+    },
+    {
+      "entreesId": 1,
+      "veggiesId": 1,
+      "sidesId": 1,
+      "id": 4
     }
   ],
   "comboChoices": {}

@@ -10,7 +10,7 @@ const renderAllHTML = async () => {
     const entreeOptions = await Entrees()
     const veggieOptions = await Veggies()
     const sideDishOptions = await Sides()
-    const SavePurchaseHTML = await SavePurchase()
+    const SavePurchaseHTML = SavePurchase()
     const salesHTML = await Sales()
     
     const composedHTML = `
